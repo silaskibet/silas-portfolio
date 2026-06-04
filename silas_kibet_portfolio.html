@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silas Kibet | Data Analyst & Statistician</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom styles for animations and specific tweaks */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Timeline dot positioning */
+        .timeline-dot {
+            left: -0.41rem;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-100 selection:text-primary-900">
+
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="text-2xl font-bold text-primary-600 tracking-tight">SK<span class="text-slate-800">.</span></a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-600 hover:text-primary-600 font-medium transition-colors">About</a>
+                    <a href="#experience" class="text-slate-600 hover:text-primary-600 font-medium transition-colors">Experience</a>
+                    <a href="#projects" class="text-slate-600 hover:text-primary-600 font-medium transition-colors">Projects</a>
+                    <a href="#education" class="text-slate-600 hover:text-primary-600 font-medium transition-colors">Education & Certs</a>
+                    <a href="#contact" class="text-slate-600 hover:text-primary-600 font-medium transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full left-0 top-16">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 text-slate-600 font-medium hover:bg-primary-50 hover:text-primary-600 rounded-md">About</a>
+                <a href="#experience" class="block px-3 py-2 text-slate-600 font-medium hover:bg-primary-50 hover:text-primary-600 rounded-md">Experience</a>
+                <a href="#projects" class="block px-3 py-2 text-slate-600 font-medium hover:bg-primary-50 hover:text-primary-600 rounded-md">Projects</a>
+                <a href="#education" class="block px-3 py-2 text-slate-600 font-medium hover:bg-primary-50 hover:text-primary-600 rounded-md">Education & Certs</a>
+                <a href="#contact" class="block px-3 py-2 text-slate-600 font-medium hover:bg-primary-50 hover:text-primary-600 rounded-md">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-br from-slate-50 to-primary-50/50">
+        <!-- Background decorations -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div class="absolute top-40 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6 fade-in-up">
+                <p class="text-primary-600 font-semibold tracking-wide uppercase text-sm">Nairobi, Kenya</p>
+                <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight">
+                    Hi, I'm <span class="text-primary-600">Silas Kibet</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-medium text-slate-600">
+                    Statistician & Data Analyst
+                </h2>
+                <p class="text-lg text-slate-600 max-w-lg leading-relaxed">
+                    Transforming complex data into actionable public sector and business insights. Experienced in machine learning, statistical modeling, and automated data pipelines.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#projects" class="px-8 py-3 bg-primary-600 text-white rounded-full font-medium hover:bg-primary-700 transition-colors shadow-lg shadow-primary-500/30">
+                        View Work
+                    </a>
+                    <a href="#contact" class="px-8 py-3 bg-white text-slate-700 border border-slate-200 rounded-full font-medium hover:bg-slate-50 hover:text-primary-600 transition-colors shadow-sm">
+                        Contact Me
+                    </a>
+                </div>
+                <div class="flex gap-4 pt-4 text-slate-500">
+                    <a href="https://linkedin.com/in/silas-kibet-b35449227" target="_blank" class="hover:text-primary-600 transition-colors" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="mailto:silaskibet877@gmail.com" class="hover:text-primary-600 transition-colors" title="Email">
+                        <i class="fa-solid fa-envelope text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="flex justify-center fade-in-up delay-100">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <!-- Decorative border -->
+                    <div class="absolute inset-0 border-4 border-primary-200 rounded-full transform translate-x-4 translate-y-4"></div>
+                    <!-- Placeholder Profile Image -->
+                    <img src="https://placehold.co/600x600/2563eb/ffffff?text=SK" alt="Silas Kibet" class="absolute inset-0 w-full h-full object-cover rounded-full shadow-2xl border-4 border-white">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-primary-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Professional Summary -->
+                <div class="fade-in-up">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-user-tie text-primary-600"></i> Professional Summary
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+                        Detail-oriented Statistician with a B.Sc. in Applied Statistics with Computing and a Minor in Economics. I have a proven track record in public sector data collection, field supervision, and hands-on data science experience.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                        I specialize in creating machine learning models, designing dashboards, and conducting comprehensive statistical analysis to drive strategic decision-making. My experience spans across the Kenya Revenue Authority (KRA), the State Department for Social Protection, and the Kenya National Bureau of Statistics (KNBS).
+                    </p>
+                    
+                    <!-- Languages -->
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold text-slate-800 mb-3">Languages</h4>
+                        <ul class="space-y-2 text-slate-600">
+                            <li><i class="fa-solid fa-check text-primary-500 mr-2"></i> <strong>English:</strong> Fluent</li>
+                            <li><i class="fa-solid fa-check text-primary-500 mr-2"></i> <strong>Swahili:</strong> Fluent</li>
+                            <li><i class="fa-solid fa-check text-primary-500 mr-2"></i> <strong>German:</strong> Conversational</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Technical & Professional Skills -->
+                <div class="fade-in-up delay-100 bg-slate-50 p-8 rounded-3xl border border-slate-100">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-code text-primary-600"></i> Technical Skills
+                    </h3>
+                    <div class="flex flex-wrap gap-2 mb-10">
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">SQL</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">Python</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">R</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">Machine Learning</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">Scikit-learn</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">TensorFlow</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">Pandas & NumPy</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">Data Visualization</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">Power BI</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">Apache Superset</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">Git/GitHub</span>
+                        <span class="px-4 py-2 bg-white text-slate-700 border border-slate-200 rounded-full text-sm font-medium shadow-sm">Jupyter</span>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-users-gear text-primary-600"></i> Professional Skills
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium">Leadership & Team Management</span>
+                        <span class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium">Strategic Communication</span>
+                        <span class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium">Complex Problem-solving</span>
+                        <span class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium">Stakeholder Engagement</span>
+                        <span class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium">Project Coordination</span>
+                        <span class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium">Data Interpretation</span>
+                        <span class="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium">Public Speaking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Work Experience</h2>
+                <div class="w-20 h-1 bg-primary-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="relative border-l-2 border-primary-200 ml-3 md:ml-6 space-y-12">
+                
+                <!-- KRA -->
+                <div class="relative pl-8 md:pl-10 fade-in-up">
+                    <div class="absolute w-4 h-4 bg-primary-600 rounded-full timeline-dot top-1 ring-4 ring-primary-100"></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800">Data Science Intern</h3>
+                                <h4 class="text-lg text-primary-600 font-medium">Kenya Revenue Authority (KRA)</h4>
+                            </div>
+                            <div class="mt-2 md:mt-0 text-slate-500 bg-slate-100 px-3 py-1 rounded-full text-sm whitespace-nowrap inline-block w-fit">
+                                <i class="fa-regular fa-calendar-alt mr-1"></i> Jan 2025 - Dec 2025
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-4"><i class="fa-solid fa-location-dot mr-1"></i> Nairobi, Kenya</p>
+                        <ul class="space-y-3 text-slate-600 list-disc list-inside marker:text-primary-400">
+                            <li>Built Superset dashboard to visualize core business KPIs (e.g. Monthly Recurring Revenue), saving 10 hours per week of manual reporting work.</li>
+                            <li>Supporting tax analytics and compliance monitoring using Python and Excel.</li>
+                            <li>Conducted data validation and user testing on taxpayer classification models to ensure accuracy in automated revenue collection strategies (UAT).</li>
+                            <li>Proficient in creating Business Requirement Documents (BRDs), User Stories, and Process Flow Diagrams.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- State Dept -->
+                <div class="relative pl-8 md:pl-10 fade-in-up">
+                    <div class="absolute w-4 h-4 bg-primary-600 rounded-full timeline-dot top-1 ring-4 ring-primary-100"></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800">Field Supervisor</h3>
+                                <h4 class="text-lg text-primary-600 font-medium">State Dept. for Social Protection</h4>
+                            </div>
+                            <div class="mt-2 md:mt-0 text-slate-500 bg-slate-100 px-3 py-1 rounded-full text-sm whitespace-nowrap inline-block w-fit">
+                                <i class="fa-regular fa-calendar-alt mr-1"></i> Apr 2024 - Jun 2024
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-4"><i class="fa-solid fa-location-dot mr-1"></i> Iten, Kenya</p>
+                        <ul class="space-y-3 text-slate-600 list-disc list-inside marker:text-primary-400">
+                            <li>Managed field teams during comprehensive social protection surveys.</li>
+                            <li>Oversaw data collection methodologies and ensured stringent reporting accuracy for regional social programs.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- KNBS -->
+                <div class="relative pl-8 md:pl-10 fade-in-up">
+                    <div class="absolute w-4 h-4 bg-primary-600 rounded-full timeline-dot top-1 ring-4 ring-primary-100"></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800">Statistical Assistant Attachee</h3>
+                                <h4 class="text-lg text-primary-600 font-medium">Kenya National Bureau of Statistics (KNBS)</h4>
+                            </div>
+                            <div class="mt-2 md:mt-0 text-slate-500 bg-slate-100 px-3 py-1 rounded-full text-sm whitespace-nowrap inline-block w-fit">
+                                <i class="fa-regular fa-calendar-alt mr-1"></i> Jan 2022 - Apr 2022
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-4"><i class="fa-solid fa-location-dot mr-1"></i> Iten, Kenya</p>
+                        <ul class="space-y-3 text-slate-600 list-disc list-inside marker:text-primary-400">
+                            <li>Cleaned and tabulated large-scale household survey data, contributing directly to county statistical abstracts.</li>
+                            <li>Assisted with survey design and comprehensive questionnaire development.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Featured Projects</h2>
+                <div class="w-20 h-1 bg-primary-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group fade-in-up">
+                    <div class="h-48 bg-primary-900 relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 20px 20px;"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fa-solid fa-scale-balanced text-6xl text-primary-400/50 group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-sm text-primary-600 font-semibold mb-2">April 2025</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4 group-hover:text-primary-600 transition-colors">Multi-factor Tax Risk Engine for Automated Taxpayer Classification</h3>
+                        <p class="text-slate-600 mb-6 line-clamp-4">
+                            Created a machine learning-based risk engine for KRA to categorize taxpayers using K-means clustering and multi-dimensional risk factors, improving compliance monitoring. Implemented data-driven segmentation to identify high-risk entities, optimizing resource allocation.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 text-xs rounded-full">Machine Learning</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 text-xs rounded-full">K-Means Clustering</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 text-xs rounded-full">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group fade-in-up delay-100">
+                    <div class="h-48 bg-teal-900 relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 20px 20px;"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fa-solid fa-heart-pulse text-6xl text-teal-400/50 group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-sm text-teal-600 font-semibold mb-2">January 2023</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4 group-hover:text-teal-600 transition-colors">Multi-factor Analysis of Life Expectancy Variations</h3>
+                        <p class="text-slate-600 mb-6 line-clamp-4">
+                            Built predictive models to identify socio-economic and health factors affecting life expectancy across Kenya's 47 counties. Conducted preprocessing and feature engineering on multi-dimensional datasets, creating visualizations to support public health policy.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 text-xs rounded-full">Predictive Modeling</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 text-xs rounded-full">Data Preprocessing</span>
+                            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 text-xs rounded-full">Data Viz</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Education & Background</h2>
+                <div class="w-20 h-1 bg-primary-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Education Col -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-8 flex items-center gap-3 fade-in-up">
+                        <i class="fa-solid fa-graduation-cap text-primary-600"></i> Formal Education
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- Edu 1 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm fade-in-up">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-bold text-slate-800">Applied Data Science Lab</h4>
+                                <span class="text-sm text-primary-600 font-medium bg-primary-50 px-2 py-1 rounded">2026</span>
+                            </div>
+                            <p class="text-primary-600 font-medium mb-3">WorldQuant University <span class="text-slate-400 text-sm font-normal">| Nairobi, Kenya</span></p>
+                            <p class="text-slate-600 text-sm">Project-Based Learning residency focused on end-to-end data science projects, including house price prediction models and climate data analysis.</p>
+                        </div>
+                        <!-- Edu 2 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm fade-in-up">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-bold text-slate-800">B.Sc. Applied Statistics with Computing</h4>
+                                <span class="text-sm text-primary-600 font-medium bg-primary-50 px-2 py-1 rounded">2018 - 2023</span>
+                            </div>
+                            <p class="text-primary-600 font-medium mb-2">Moi University <span class="text-slate-400 text-sm font-normal">| Eldoret, Kenya</span></p>
+                            <p class="text-slate-700 text-sm mb-3 font-medium">Major in Statistical Analysis & Data Science; Minor in Economics</p>
+                            <p class="text-slate-600 text-sm mb-2"><strong class="text-slate-700">GPA:</strong> 3.60/4.0 (Second Class Upper)</p>
+                            <p class="text-slate-600 text-sm"><strong class="text-slate-700">Coursework:</strong> Data Analysis, Economics, Data Science, Algorithms, AI</p>
+                        </div>
+                        <!-- Edu 3 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm fade-in-up">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-bold text-slate-800">Kenya Certificate of Secondary Education</h4>
+                                <span class="text-sm text-primary-600 font-medium bg-primary-50 px-2 py-1 rounded">2014 - 2017</span>
+                            </div>
+                            <p class="text-primary-600 font-medium mb-2">Mang'u High School <span class="text-slate-400 text-sm font-normal">| Juja, Kenya</span></p>
+                            <p class="text-slate-600 text-sm"><strong class="text-slate-700">Mean Grade:</strong> B</p>
+                        </div>
+                    </div>
+
+                    <!-- Leadership -->
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-8 flex items-center gap-3 fade-in-up">
+                        <i class="fa-solid fa-users text-primary-600"></i> Leadership & Activities
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm fade-in-up">
+                            <h4 class="font-bold text-slate-800">Data Science Mentee</h4>
+                            <p class="text-primary-600 text-sm mb-2">Everything Data Africa <span class="text-slate-400">| Mar 2025 - Jul 2025</span></p>
+                            <p class="text-slate-600 text-sm">Participated in structured training covering statistical analysis, ML, and data viz. Engaged with the African data science community.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm fade-in-up">
+                            <h4 class="font-bold text-slate-800">Station Lead</h4>
+                            <p class="text-primary-600 text-sm mb-2">Data Analytics Station (KRA) <span class="text-slate-400">| Feb 2025 - Jul 2025</span></p>
+                            <p class="text-slate-600 text-sm">Led a team of data analytics interns ensuring consistent work quality. Primary point of contact for Management.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm fade-in-up">
+                            <h4 class="font-bold text-slate-800">Vice Chairman</h4>
+                            <p class="text-primary-600 text-sm mb-2">Science Students Association (Moi Univ) <span class="text-slate-400">| 2020</span></p>
+                            <p class="text-slate-600 text-sm">Assisted in strategic planning, organized academic conferences and science fairs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Col -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-8 flex items-center gap-3 fade-in-up">
+                        <i class="fa-solid fa-certificate text-primary-600"></i> Professional Certifications
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Cert Item -->
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up">
+                            <div class="mt-1 text-blue-500"><i class="fa-brands fa-google text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">Google Data Analytics</h5>
+                                <p class="text-xs text-slate-500">Professional Certificate</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up">
+                            <div class="mt-1 text-blue-800"><i class="fa-brands fa-ibm text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">IBM Data Analyst</h5>
+                                <p class="text-xs text-slate-500">Professional Certificate</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up">
+                            <div class="mt-1 text-red-600"><i class="fa-solid fa-network-wired text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">Huawei Data Management</h5>
+                                <p class="text-xs text-slate-500">Data Management & Analysis</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up">
+                            <div class="mt-1 text-red-600"><i class="fa-solid fa-microchip text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">Huawei Artificial Intelligence</h5>
+                                <p class="text-xs text-slate-500">AI Certificate</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up">
+                            <div class="mt-1 text-blue-600"><i class="fa-brands fa-microsoft text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">Career Essentials in Data</h5>
+                                <p class="text-xs text-slate-500">Microsoft & LinkedIn</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up">
+                            <div class="mt-1 text-red-500"><i class="fa-brands fa-aws text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">Generative AI</h5>
+                                <p class="text-xs text-slate-500">AWS Udacity</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up">
+                            <div class="mt-1 text-red-600"><i class="fa-brands fa-java text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">Oracle AI & Data Science</h5>
+                                <p class="text-xs text-slate-500">Professional Certificate</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up">
+                            <div class="mt-1 text-blue-800"><i class="fa-brands fa-ibm text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">IBM AI Fundamentals</h5>
+                                <p class="text-xs text-slate-500">Foundational Certificate</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up">
+                            <div class="mt-1 text-blue-500"><i class="fa-solid fa-server text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">CISCO Data Analytics</h5>
+                                <p class="text-xs text-slate-500">Technical Certificate</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up">
+                            <div class="mt-1 text-emerald-600"><i class="fa-solid fa-leaf text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">PLP AI Safari</h5>
+                                <p class="text-xs text-slate-500">Power Learn Project (Continuing)</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3 hover:border-primary-300 transition-colors fade-in-up sm:col-span-2">
+                            <div class="mt-1 text-slate-600"><i class="fa-solid fa-briefcase text-xl"></i></div>
+                            <div>
+                                <h5 class="font-semibold text-slate-800 text-sm">Evolving Employability Skills</h5>
+                                <p class="text-xs text-slate-500">Corporate Career Academy (CCA)</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-4xl mx-auto text-center fade-in-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Get In Touch</h2>
+            <div class="w-20 h-1 bg-primary-600 mx-auto rounded-full mb-8"></div>
+            <p class="text-lg text-slate-600 mb-12 max-w-2xl mx-auto">
+                Whether you have a data challenge, a potential opportunity, or just want to connect, I'd love to hear from you. My inbox is always open.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <a href="mailto:silaskibet877@gmail.com" class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-envelope text-xl text-primary-600 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-2">Email Me</h3>
+                    <p class="text-sm text-slate-500 break-all">silaskibet877@gmail.com</p>
+                </a>
+
+                <a href="tel:+254708080063" class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-phone text-xl text-primary-600 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-2">Call Me</h3>
+                    <p class="text-sm text-slate-500">+254 708 080 063</p>
+                </a>
+
+                <a href="https://linkedin.com/in/silas-kibet-b35449227" target="_blank" class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm group-hover:bg-[#0A66C2] group-hover:text-white transition-colors">
+                        <i class="fa-brands fa-linkedin-in text-xl text-[#0A66C2] group-hover:text-white"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-2">LinkedIn</h3>
+                    <p class="text-sm text-slate-500">Let's Connect</p>
+                </a>
+            </div>
+
+            <button onclick="copyEmail()" id="copyBtn" class="px-8 py-4 bg-slate-900 text-white rounded-full font-medium hover:bg-slate-800 transition-colors shadow-lg flex items-center gap-2 mx-auto">
+                <i class="fa-regular fa-copy"></i> Copy Email Address
+            </button>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-4">&copy; <span id="year"></span> Silas Kibet. All rights reserved.</p>
+            <p class="text-sm">Statistician | Data Analyst based in Nairobi, Kenya.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Navbar blur effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md', 'bg-white/95');
+                navbar.classList.remove('bg-white/80');
+            } else {
+                navbar.classList.remove('shadow-md', 'bg-white/95');
+                navbar.classList.add('bg-white/80');
+            }
+        });
+
+        // Scroll Animation (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Run once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Copy Email Functionality
+        function copyEmail() {
+            const email = "silaskibet877@gmail.com";
+            
+            // Create a temporary textarea to hold the text
+            const tempInput = document.createElement("textarea");
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            
+            try {
+                // Execute copy
+                document.execCommand("copy");
+                const btn = document.getElementById('copyBtn');
+                const originalText = btn.innerHTML;
+                
+                // Show success feedback
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                btn.classList.replace('bg-slate-900', 'bg-green-600');
+                btn.classList.replace('hover:bg-slate-800', 'hover:bg-green-700');
+                
+                // Revert back after 2 seconds
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-green-600', 'bg-slate-900');
+                    btn.classList.replace('hover:bg-green-700', 'hover:bg-slate-800');
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy', err);
+            }
+            
+            // Remove temp input
+            document.body.removeChild(tempInput);
+        }
+    </script>
+</body>
+</html>
